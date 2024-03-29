@@ -59,7 +59,7 @@ const readAndCleanClassifier = (authToken, classifier) => {
         headers: headers
     }).then((response) => {
         const cuds = cudsFromResponse(response)
-        execCud(cuds)
+        execCud(cuds, headers)
     })
 }
 
@@ -78,7 +78,7 @@ const cudsFromResponse = (response) => {
     return cuds
 }
 
-const execCud = (cuds) => {
+const execCud = (cuds, headers) => {
     if (cuds.length === 0) {
         return
     }
